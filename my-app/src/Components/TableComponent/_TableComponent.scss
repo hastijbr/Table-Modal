@@ -1,0 +1,89 @@
+$BgColor: #030014;
+$SearchIconColor: #0b1485;
+
+.TableComponent {
+  background-color: $BgColor;
+  //   background: rgba(255, 255, 255, 0.2);
+  //   box-shadow: 0 8px 32px 0 rgba(196, 198, 223, 0.37);
+  //   backdrop-filter: blur(1px);
+  //   -webkit-backdrop-filter: blur(1px);
+  //   border-radius: 10px;
+  border: 1px solid $BgColor;
+  border-radius: 5px;
+  height: 620px;
+
+  &__header {
+    justify-content: space-between;
+    background-color: $BgColor;
+
+    &-toolbarBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &-search {
+        background-color: var(--background-blue);
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        & input {
+          border: none;
+          background-color: #ccc;
+          padding: 0 37px;
+          width: 0;
+          transition: all var(--search-animation-duration) ease-out;
+          width: 200px;
+          height: 40px;
+          border-radius: 8px;
+          &:focus {
+            outline: none;
+          }
+        }
+        svg {
+          position: relative;
+          top: 0;
+          right: 190px;
+          color: $SearchIconColor;
+        }
+      }
+    }
+  }
+
+  .bitCoin {
+    font-size: 36px;
+    color: orange;
+  }
+
+  .contentData {
+    height: 490px;
+  }
+  thead{
+      position: sticky;
+      top: 0;
+      background-color: $BgColor;
+      font-size: 20px;
+      th{
+          padding-bottom: 16px;
+      }
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    // box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #adadad; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #838383; 
+  }
+}
