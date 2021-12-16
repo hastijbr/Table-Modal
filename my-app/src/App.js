@@ -2,6 +2,7 @@ import "./App.scss";
 import TableComponent from "./Components/TableComponent/TableComponent";
 import ModalComponent from "./Components/ModalComponent/ModalComponent";
 
+
 function App() {
   return (
     <div className="App">
