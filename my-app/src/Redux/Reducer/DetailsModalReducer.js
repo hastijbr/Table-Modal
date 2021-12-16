@@ -4,13 +4,13 @@ const initialState = {
 };
 
 export default function DetailsModalReducer(state = initialState, action) {
-  if (action.payload === "detailsModal/open") {
+  if (action.type === "detailsModal/open") {
     return {
       ...state,
       isOpen: true,
       id: action.payload,
     };
-  } else if (action.payload === "detailsModal/close") {
+  } else if (action.type === "detailsModal/close") {
     return {
       ...state,
       isOpen: false,

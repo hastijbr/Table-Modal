@@ -56,6 +56,13 @@ $SearchIconColor: #0b1485;
   .contentData {
     height: 490px;
   }
+
+  .eyeModalBtn{
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+  }
   thead{
       position: sticky;
       top: 0;

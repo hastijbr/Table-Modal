@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { isCloseDetails } from "../../Redux/Action/DetailsModalAction";
+import ReactApexChart from "react-apexcharts";
 
 const style = {
   position: "absolute",
@@ -18,7 +20,7 @@ const style = {
 };
 
 function ModalComponent() {
-
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState({
     chart: {
@@ -59,8 +61,6 @@ function ModalComponent() {
       data: [11, 32, 45, 32, 34, 52, 41],
     },
   ]);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
   const state = useSelector((state) => {
     return {
@@ -68,6 +68,23 @@ function ModalComponent() {
       isOpen: state.DetailsModalReducer.isOpen,
     };
   });
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    dispatch(isCloseDetails());
+    setOpen(false);
+  };
+
+  useEffect(() => {
+    if (state.id === 0) {
+      handleClose();
+    } else {
+      handleClickOpen();
+    }
+  }, [state.id]);
 
   return (
     <div>
@@ -81,12 +98,12 @@ function ModalComponent() {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Text in a modal
           </Typography>
-          <ReactApexChart
+          {/* <ReactApexChart
             options={options}
             series={series}
             type="area"
             height={350}
-          />
+          /> */}
         </Box>
       </Modal>
     </div>
