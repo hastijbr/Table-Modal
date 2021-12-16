@@ -9,11 +9,10 @@ import {
 import Skeleton from "react-loading-skeleton";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useDispatch } from "react-redux";
-import { isOpenDetails } from "../../Redux/Action/DetailsModalAction";
+import {
+  isOpenDetails,
+} from "../../Redux/Action/DetailsModalAction";
 
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
 
 /***Skeleton***/
 
@@ -41,47 +40,7 @@ const SkeletonLoading = () => {
 
 const OneRowAppearance = (props) => {
   const dispatch = useDispatch();
-  const ModalTest = () => {
-    const style = {
-      position: "absolute",
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      width: 400,
-      bgcolor: "background.paper",
-      border: "2px solid #000",
-      boxShadow: 24,
-      p: 4,
-    };
-  
-    const handleClose = () => {
-      setOpen(false);
-    };
-    const handleOpen = () => {
-      setOpen(true);
-    };
-    const [open, setOpen] = useState(false);
-    return (
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          {/* <ReactApexChart
-              options={options}
-              series={series}
-              type="area"
-              height={350}
-            /> */}
-        </Box>
-      </Modal>
-    );
-  };
+
   return (
     <>
       <tr id={props.id}>
@@ -89,7 +48,6 @@ const OneRowAppearance = (props) => {
           <div className="d-flex align-items-center">
             <div className="symbol symbol-45px me-2">
               <div>
-                {/* <i class="fab fa-bitcoin bitCoin"></i> */}
                 <img src={props.icon} />
               </div>
             </div>
@@ -137,9 +95,10 @@ const OneRowAppearance = (props) => {
               <div>
                 <button
                   className="eyeModalBtn"
-                  onClick={handleOpen()}
+                  onClick={() => {
+                    dispatch(isOpenDetails(1));
+                  }}
                 >
-                    {ModalTest}
                   <FontAwesomeIcon
                     icon={faEye}
                     size="lg"
@@ -166,8 +125,6 @@ const OneRowAppearance = (props) => {
     </>
   );
 };
-
-
 
 function TableComponent() {
   const [data, setData] = useState([]);

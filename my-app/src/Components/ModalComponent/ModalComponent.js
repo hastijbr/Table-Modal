@@ -12,7 +12,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: 500,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -64,8 +64,8 @@ function ModalComponent() {
 
   const state = useSelector((state) => {
     return {
-      id: state.DetailsModalReducer.id,
-      isOpen: state.DetailsModalReducer.isOpen,
+      id: state.DetailsModal.id,
+      isOpen: state.DetailsModal.isOpen,
     };
   });
 
@@ -98,12 +98,12 @@ function ModalComponent() {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Text in a modal
           </Typography>
-          {/* <ReactApexChart
+          <ReactApexChart
             options={options}
             series={series}
             type="area"
             height={350}
-          /> */}
+          />
         </Box>
       </Modal>
     </div>

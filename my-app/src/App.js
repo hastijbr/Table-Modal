@@ -1,6 +1,6 @@
 import "./App.scss";
-import ModalComponent from "./Components/ModalComponent/ModalComponent";
 import TableComponent from "./Components/TableComponent/TableComponent";
+import ModalComponent from "./Components/ModalComponent/ModalComponent";
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
         <div className="row">
           <div className="col-xl">
             <TableComponent />
+            <ModalComponent/>
           </div>
         </div>
       </div>
